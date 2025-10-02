@@ -8,11 +8,13 @@ let messages = [  "Hello ALITHAAAAA", "Hello AMINAAAAA", "Hello Once More"];
 router.get("/",  (req, res)=>{
     res.json({
         "status": "success",
-        "data": messages,
+        "data": {
+            "messages": messages
+        },
     }); 
 });
 
-router.get("/messages/:id",  (req, res)=>{ 
+router.get("/:id",  (req, res)=>{ 
     let id = req.params.id;
     if(id >= messages.length){
         res.json({
