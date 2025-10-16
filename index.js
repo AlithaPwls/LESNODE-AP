@@ -1,11 +1,21 @@
 const express = require('express');
+const config = require('config');
+const cors = require('cors');
 const app = express();
 const logger = require('./middleware/logger');
 const port = 3000;
 const messagesRouter = require('./routes/v1/messages.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/messages');
+
+//Read Mongodb connection string from configuration (default vs production)
+const dbUri = config.get('db.uri');
+mongoose.connect(dbUri)
+  .then(() => console.log('MongoDB connected...'))
+  .catch(err => console.log(err));
+
+
+
 
 app.use(logger);
 

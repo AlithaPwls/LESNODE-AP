@@ -1,0 +1,5 @@
+{
+    "db": {
+      "uri": "mongodb+srv://r1011638_db_user:<db_password>@messages-2025.q62m5rm.mongodb.net/?retryWrites=true&w=majority&appName=messages-2025"
+    }
+  }
