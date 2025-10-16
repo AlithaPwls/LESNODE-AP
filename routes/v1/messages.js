@@ -1,18 +1,12 @@
 const express = require('express');
-const router = express.Router();
+const messagesController = require('../../conrtollers/v1/messages');
 
+const router = express.Router();
 
 let messages = [  "Hello ALITHAAAAA", "Hello AMINAAAAA", "Hello Once More"];
 
 
-router.get("/",  (req, res)=>{
-    res.json({
-        "status": "success",
-        "data": {
-            "messages": messages
-        },
-    }); 
-});
+router.get("/", messagesController.getAll);
 
 router.get("/:id",  (req, res)=>{ 
     let id = req.params.id;
