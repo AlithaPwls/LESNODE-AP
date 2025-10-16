@@ -10,7 +10,9 @@ const mongoose = require('mongoose');
 
 //Read Mongodb connection string from configuration (default vs production)
 const dbUri = config.get('db.uri');
-mongoose.connect(dbUri)
+console.log(dbUri);
+mongoose
+.connect(dbUri)
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err));
 
